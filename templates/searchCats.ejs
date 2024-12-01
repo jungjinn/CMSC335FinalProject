@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Cat Search - Search</title> 
+  <link rel="stylesheet" href="style.css"> 
+</head> 
+
+<body>
+  <h1>Search</h1>
+
+  <form action="/processSearchCats" method="POST">
+    <h2>Quick Search</h2>
+    <button type="submit" name="random_cats" value="true">Random Cats</button>
+    <br>
+
+    <h2>By Breed</h2>
+    <label for="breed">Select breed:</label>
+    <select name="breed_ids" id="breed">
+      <option value=""></option>
+      <% breeds.forEach(breed => { %>
+        <option value="<%= breed.id %>"><%= breed.name %></option>
+      <% }); %>
+    </select>
+    <button type="submit">Results</button>
+    <br>
+
+    <h2>By Category</h2>
+    <label for="category">Select category:</label>
+    <select name="category_ids" id="category">
+      <option value=""></option>
+      <% categories.forEach(category => { %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% }); %>
+    </select>
+    <button type="submit">Results</button>
+    <br>
+  </form>
+
+  <hr>
+	<a href="/">HOME</a>
+</body>
+
+</html>

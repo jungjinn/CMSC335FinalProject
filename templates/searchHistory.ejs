@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Cat Search - History</title> 
+  <link rel="stylesheet" href="style.css"> 
+</head> 
+
+<body>
+  <h1>History</h1>
+
+  <% history.forEach(search => { %>
+    <strong>Time:</strong> <%= search.timestamp.toLocaleString() %><br>
+
+    <% if (search.breedName) { %>
+      <strong>Breed: </strong><%= search.breedName %><br>
+    <% } %>
+
+    <% if (search.categoryName) { %>
+      <strong>Category: </strong><%= search.categoryName %><br>
+    <% } %>
+
+    <% if (search.random_cats) { %>
+      <strong>Random Cats</strong><br>
+    <% } %>
+
+    <hr>
+  <% }); %>
+
+  <hr>
+	<a href="/">HOME</a>
+</body>
+
+</html>

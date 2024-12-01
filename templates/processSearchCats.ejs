@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Cat Search - Results</title> 
+  <link rel="stylesheet" href="style.css"> 
+</head> 
+
+<body>
+  <h1>Results</h1>
+
+  <div id="results">
+    <% if (catImages.length > 0) { %>
+      <% catImages.forEach(cat => { %>
+        <div>
+          <img src="<%= cat.url %>" alt="Cat Image" class="center">
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No results found. Try searching with a different filter.</p>
+    <% } %>
+  </div>
+
+  <hr>
+  <a href="/searchCats">&lt Back to Search</a>
+  <br>
+	<a href="/">HOME</a>
+</body>
+
+</html>
