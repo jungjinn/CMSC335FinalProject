@@ -118,30 +118,8 @@ app.get("/searchHistory", async (req, res) => {
   }
 });
 
-/***** Command Line Interface and Starting Server *****/
-if (process.argv.length != 3) {
-  process.stdout.write("Usage catSearchServer.js portNumber");
-  process.exit(1);
-}
-
-const portNumber = process.argv[2];
-app.listen(portNumber);
-console.log(`Web server started and running at http://localhost:${portNumber}`);
-
-const prompt = "Type stop to shutdown the server: "
-process.stdout.write(prompt);
-process.stdin.setEncoding("utf8");
-process.stdin.on("readable", function () {
-  const input = process.stdin.read();
-  if (input !== null) {
-    const command = input.trim();
-    if (command === "stop") {
-      console.log("Shutting down the server");
-      process.exit(0);
-    } else {
-      console.log(`Invalid command: ${command}`);
-    }
-    process.stdout.write(prompt);
-    process.stdin.resume();
-  }
+/***** Starting Server *****/
+const portNumber = process.env.PORT || 5000;
+app.listen(portNumber, () => {
+  console.log(`Started on port ${portNumber}`);
 });
